@@ -40,6 +40,7 @@ const PORTFOLIO = {
       steps: [
         "Percebi que o principal problema era a falta de um lugar único para registrar as pendências.",
         "Desenvolvi o sistema em PHP, com os dados guardados em um banco PostgreSQL.",
+        "Na etapa final do desenvolvimento, usei IA (LLMs) como apoio para acelerar e refinar o sistema.",
         "Passamos a criar um chamado para cada demanda e a acompanhar o andamento de todos.",
         "Com tudo registrado, ficou possível investigar e eliminar problemas mais complexos."
       ],
@@ -73,13 +74,13 @@ const PORTFOLIO = {
       role: "Fundador",
       place: "NoxusSoft · Londrina",
       period: "jul 2026 – atual",
-      text: "Software house que fundei com o Cadu. Criamos sites, landing pages e sistemas sob medida para pequenos negócios, com banco de dados, painéis administrativos e publicação. Sites no ar: Fiat Graças, Vasconcellos Studio, Amoricando, Lixadora Carfi e Ótica Bandeirantes."
+      text: "Software house que fundei com o Cadu. Criamos sites, landing pages e sistemas sob medida para pequenos negócios, com banco de dados, painéis administrativos e publicação. Sites no ar: Fiat Graças, Vasconcellos Studio, Amoricando, Lixadora Carfi e Ótica Bandeirantes. Uso IA como apoio no desenvolvimento, inclusive nos detalhes do site da própria NoxusSoft."
     },
     {
       role: "Analista de Suporte",
       place: "Pro System ERP · Londrina",
       period: "mai 2026 – atual",
-      text: "Responsável pelo desenvolvimento do sistema interno de chamados e pendências da empresa, feito em PHP e PostgreSQL."
+      text: "Responsável pelo desenvolvimento do sistema interno de chamados e pendências da empresa, feito em PHP e PostgreSQL, com apoio de IA na etapa final do desenvolvimento."
     },
     {
       role: "Técnico em Suporte",
@@ -108,7 +109,7 @@ const PORTFOLIO = {
   skills: [
     { group: "Sistemas e dados", items: "PostgreSQL, SAP ECC, Pacote Office, Google Sheets" },
     { group: "Programação", items: "TypeScript, JavaScript, React, Next.js, Node.js, PHP, lógica de programação, Java (em estudo)" },
-    { group: "Inteligência artificial", items: "Facilidade e conhecimento amplo de LLMs e IA" },
+    { group: "Inteligência artificial", items: "Facilidade e conhecimento amplo de LLMs e IA, aplicados na prática no sistema de chamados da Pro System e nos detalhes do site da NoxusSoft" },
     { group: "Comportamental", items: "Boa comunicação com o cliente e a equipe, comprometimento com horários e prazos, gestão de equipe de suporte" },
     { group: "Idiomas", items: "Português, Inglês (intermediário), Espanhol (intermediário)" }
   ]
