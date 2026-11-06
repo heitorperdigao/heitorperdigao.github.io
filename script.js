@@ -14,21 +14,27 @@
   }
   const link = l => h("a", { href: l.url, target: l.url.startsWith("http") ? "_blank" : null, rel: "noopener", text: l.label });
 
+  /* ---------- cabeçalho / coluna lateral ---------- */
   document.title = D.name;
   $("demo").hidden = !D.demo;
-  $("name").textContent = D.name;
+  const words = D.name.split(" ");
+  const last = words.pop();
+  $("name").append(words.join(" ") + " ", h("em", { text: last }));
+  $("role").textContent = D.role || "";
   $("intro").textContent = D.intro;
   D.links.forEach(l => $("links").append(link(l)));
+  // links do rodapé da lateral não precisam do sublinhado de texto; o estilo cuida disso
 
+  /* ---------- sobre ---------- */
   D.about.forEach(p => $("about").append(h("p", { text: p })));
 
-  // projetos: <details> abre e fecha sem precisar de JavaScript
+  /* ---------- projetos (cada um abre e fecha com <details>, sem JavaScript extra) ---------- */
   D.projects.forEach(p => {
     const block = (title, node) => [h("h3", { text: title }), node];
     const links = (p.links || []).filter(l => l.url);
     $("projects").append(h("details", {},
       h("summary", {},
-        h("span", {}, h("span", { class: "t", text: p.title }), " ", h("span", { class: "s", text: "— " + p.summary })),
+        h("span", {}, h("span", { class: "t", text: p.title }), h("span", { class: "s", text: p.summary })),
         p.year ? h("span", { class: "y", text: p.year }) : null),
       h("div", { class: "body" },
         p.problem ? block("O problema", h("p", { text: p.problem })) : null,
@@ -41,15 +47,31 @@
           : null)));
   });
 
+  /* ---------- experiência e formação ---------- */
   D.experience.forEach(e => $("experience").append(h("div", { class: "row" },
-    h("div", {}, h("p", {}, h("strong", { text: e.role }), " — " + e.place), h("p", { class: "what", text: e.text })),
-    h("span", { class: "when", text: e.period }))));
+    h("span", { class: "when", text: e.period }),
+    h("div", {},
+      h("p", {}, h("strong", { text: e.role }), " · ", h("span", { class: "place", text: e.place })),
+      h("p", { class: "what", text: e.text })))));
 
   D.education.forEach(e => $("education").append(h("div", { class: "row" },
-    h("p", {}, h("strong", { text: e.title }), " — " + e.place),
-    h("span", { class: "when", text: e.period }))));
+    h("span", { class: "when", text: e.period }),
+    h("div", {}, h("p", {}, h("strong", { text: e.title })), h("p", { class: "what", text: e.place })))));
 
-  D.skills.forEach(s => $("skills").append(h("dt", { text: s.group }), h("dd", { text: s.items })));
+  /* ---------- habilidades ---------- */
+  D.skills.forEach(s => $("skills").append(h("div", { class: "skill" },
+    h("span", { class: "k", text: s.group }),
+    h("p", { text: s.items }))));
 
+  /* ---------- contato ---------- */
   $("contact").append("Me escreva em ", h("a", { href: "mailto:" + D.email, text: D.email }), ".");
+
+  /* ---------- destaca no menu a seção que está na tela ---------- */
+  const navLinks = [...document.querySelectorAll("#nav a")];
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+    });
+  }, { rootMargin: "-25% 0px -65% 0px" });
+  document.querySelectorAll("main section").forEach(s => spy.observe(s));
 })();

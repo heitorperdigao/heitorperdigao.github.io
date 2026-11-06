@@ -3,51 +3,67 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Heitor Perdigão</title>
-  <meta name="description" content="Currículo e projetos de Heitor Perdigão.">
+  <title>Heitor Costa Perdigão</title>
+  <meta name="description" content="Currículo e projetos de Heitor Costa Perdigão, analista de suporte e desenvolvedor.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <p id="demo" class="demo" hidden>Conteúdo de exemplo. Edite o arquivo data.js.</p>
 
-  <main>
-    <header>
-      <h1 id="name"></h1>
-      <p id="intro" class="intro"></p>
+  <div class="layout">
+    <aside class="side">
+      <div>
+        <h1 id="name"></h1>
+        <p class="role" id="role"></p>
+        <p class="intro" id="intro"></p>
+        <nav id="nav" aria-label="Seções">
+          <a href="#sobre">Sobre</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#experiencia">Experiência</a>
+          <a href="#formacao">Formação</a>
+          <a href="#habilidades">Habilidades</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </div>
       <p id="links" class="links"></p>
-    </header>
+    </aside>
 
-    <section>
-      <h2>Sobre</h2>
-      <div id="about"></div>
-    </section>
+    <main>
+      <section id="sobre">
+        <h2>Sobre</h2>
+        <div id="about"></div>
+      </section>
 
-    <section>
-      <h2>Projetos</h2>
-      <p class="hint">Clique em um projeto para ver como ele foi feito.</p>
-      <div id="projects"></div>
-    </section>
+      <section id="projetos">
+        <h2>Projetos</h2>
+        <p class="hint">Clique em um projeto para ver como ele foi feito.</p>
+        <div id="projects"></div>
+      </section>
 
-    <section>
-      <h2>Experiência</h2>
-      <div id="experience"></div>
-    </section>
+      <section id="experiencia">
+        <h2>Experiência</h2>
+        <div id="experience"></div>
+      </section>
 
-    <section>
-      <h2>Formação</h2>
-      <div id="education"></div>
-    </section>
+      <section id="formacao">
+        <h2>Formação</h2>
+        <div id="education"></div>
+      </section>
 
-    <section>
-      <h2>Habilidades</h2>
-      <dl id="skills"></dl>
-    </section>
+      <section id="habilidades">
+        <h2>Habilidades</h2>
+        <div id="skills"></div>
+      </section>
 
-    <section>
-      <h2>Contato</h2>
-      <p id="contact"></p>
-    </section>
-  </main>
+      <section id="contato">
+        <h2>Contato</h2>
+        <p id="contact" class="contact"></p>
+      </section>
+    </main>
+  </div>
 
   <script src="data.js"></script>
   <script src="script.js"></script>

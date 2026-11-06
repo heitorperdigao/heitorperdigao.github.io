@@ -8,7 +8,8 @@ const PORTFOLIO = {
   demo: false,
 
   name: "Heitor Costa Perdigão",
-  intro: "Analista de Suporte na Pro System ERP, formado em Análise e Desenvolvimento de Sistemas, em Londrina. Sou responsável pelo desenvolvimento do sistema interno de chamados e pendências da empresa.",
+  role: "Analista de Suporte · Londrina",
+  intro: "Formado em Análise e Desenvolvimento de Sistemas. Sou responsável pelo desenvolvimento do sistema interno de chamados e pendências da Pro System.",
   email: "heitorperdigao2311@gmail.com",
   links: [
     { label: "GitHub", url: "https://github.com/heitorperdigao" },
