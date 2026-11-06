@@ -99,6 +99,8 @@ summary:hover .t { color: var(--accent); }
 a[href$=".pdf"]::after { content: " ↓"; }
 code + code { margin-left: 6px; }
 .print-only { display: none; }
+.avail { margin: 14px 0 0; max-width: 46ch; font: .82rem/1.55 var(--mono); color: var(--muted); }
+.avail::before { content: "→ "; color: var(--accent); }
 
 /* ---------- versão de impressão / PDF (A4, claro, tudo aberto) ---------- */
 @media print {
@@ -113,6 +115,8 @@ code + code { margin-left: 6px; }
   body { font-size: 1rem; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   nav, .hint, .theme, .foot, summary::after, .links a::after, .links a[href$=".pdf"] { display: none !important; }
   .print-only { display: block; margin: 8px 0 0; font-size: 9.5pt; }
+  .avail { max-width: 135mm; margin-top: 6px; font: 9.5pt/1.4 var(--sans); color: var(--text); }
+  .avail::before { display: none; }
   /* mostra o endereço dos links principais no papel */
   .links { flex-wrap: wrap; gap: 2px 14px; font-family: var(--sans); }
   .links a[href^="http"]::after { display: inline !important; content: " " attr(href); color: var(--muted); font-size: 8pt; }

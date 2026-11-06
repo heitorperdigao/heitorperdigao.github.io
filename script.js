@@ -22,9 +22,10 @@
   $("name").append(words.join(" ") + " ", h("em", { text: last }));
   $("role").textContent = D.role || "";
   $("intro").textContent = D.intro;
+  if (D.available) $("intro").after(h("p", { class: "avail", text: D.available }));
   D.links.forEach(l => $("links").append(link(l)));
   // linha de contato que só aparece no PDF / impressão
-  $("links").before(h("p", { class: "print-only", text: [D.email, "Londrina, PR"].join(" · ") }));
+  $("links").before(h("p", { class: "print-only", text: [D.email, D.phone, "Londrina, PR"].filter(Boolean).join(" · ") }));
   // links do rodapé da lateral não precisam do sublinhado de texto; o estilo cuida disso
 
   /* ---------- sobre ---------- */

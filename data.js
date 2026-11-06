@@ -11,6 +11,8 @@ const PORTFOLIO = {
   role: "Fundador da NoxusSoft · Analista de Suporte",
   intro: "Formado em Análise e Desenvolvimento de Sistemas, em Londrina. Fundei a NoxusSoft, que cria sites, landing pages e sistemas sob medida, e desenvolvo o sistema interno de chamados da Pro System.",
   email: "heitorperdigao2311@gmail.com",
+  phone: "(43) 99908-1379", // aparece só no PDF / impressão
+  available: "Aberto para oportunidades de desenvolvimento e aprendizado de novas tecnologias, para agregar valor à empresa.",
   photo: "foto.jpg", // opcional: caminho de uma foto (deixe "" para não mostrar)
   repo: "https://github.com/heitorperdigao/heitorperdigao.github.io",
   links: [
@@ -95,7 +97,7 @@ const PORTFOLIO = {
 
   education: [
     { title: "Pós-graduação em Engenharia de IA Aplicada (a iniciar)", place: "UNIPDS", period: "em breve" },
-    { title: "Análise e Desenvolvimento de Sistemas (concluído)", place: "Anhanguera / Unopar", period: "2026" },
+    { title: "Tecnólogo em Análise e Desenvolvimento de Sistemas (concluído)", place: "Pitágoras Unopar Anhanguera · colação de grau em jul 2026 · diploma digital disponível sob solicitação", period: "2026" },
     { title: "Curso de Java (em andamento)", place: "Java10x", period: "2026" },
     { title: "Curso de JavaScript, 40 horas (concluído)", place: "Curso em Vídeo", period: "2025" },
     { title: "Informática Completo: do Básico ao Avançado", place: "Udemy", period: "2024" },
@@ -106,6 +108,7 @@ const PORTFOLIO = {
   skills: [
     { group: "Sistemas e dados", items: "PostgreSQL, SAP ECC, Pacote Office, Google Sheets" },
     { group: "Programação", items: "TypeScript, JavaScript, React, Next.js, Node.js, PHP, lógica de programação, Java (em estudo)" },
+    { group: "Comportamental", items: "Boa comunicação com o cliente e a equipe, comprometimento com horários e prazos, gestão de equipe de suporte" },
     { group: "Idiomas", items: "Português, Inglês (intermediário), Espanhol (intermediário)" }
   ]
 };
