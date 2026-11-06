@@ -14,6 +14,7 @@ const PORTFOLIO = {
   photo: "foto.jpg", // opcional: caminho de uma foto (deixe "" para não mostrar)
   repo: "https://github.com/heitorperdigao/heitorperdigao.github.io",
   links: [
+    { label: "Baixar currículo (PDF)", url: "curriculo.pdf" },
     { label: "GitHub", url: "https://github.com/heitorperdigao" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/heitorperdigao/" },
     { label: "NoxusSoft", url: "https://noxussoft.com.br" }

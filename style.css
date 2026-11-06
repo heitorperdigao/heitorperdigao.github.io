@@ -96,4 +96,52 @@ summary:hover .t { color: var(--accent); }
   .y { grid-column: 1; grid-row: 2; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
-@media print { nav, .hint, .theme, .foot { display: none; } .layout { padding: 0; } }
+a[href$=".pdf"]::after { content: " ↓"; }
+code + code { margin-left: 6px; }
+.print-only { display: none; }
+
+/* ---------- versão de impressão / PDF (A4, claro, tudo aberto) ---------- */
+@media print {
+  @page { size: A4; margin: 13mm 15mm; }
+  :root {
+    --bg: #fff !important; --text: #171717 !important; --muted: #555 !important;
+    --line: #d9d9d9 !important; --underline: #999 !important; --accent: #c2410c !important; --chip: #f3f3f3 !important;
+  }
+  :root { --mono: var(--sans) !important; }
+  html { font-size: 10pt; }
+  html, body { background: #fff; }
+  body { font-size: 1rem; line-height: 1.4; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  nav, .hint, .theme, .foot, summary::after, .links a::after, .links a[href$=".pdf"] { display: none !important; }
+  .print-only { display: block; margin: 8px 0 0; font-size: 9.5pt; }
+  /* mostra o endereço dos links principais no papel */
+  .links { flex-wrap: wrap; gap: 2px 14px; font-family: var(--sans); }
+  .links a[href^="http"]::after { display: inline !important; content: " " attr(href); color: var(--muted); font-size: 8pt; }
+  .links a { border: 0; }
+  a { text-decoration: none; }
+  /* títulos em estilo de currículo, sem os detalhes de código */
+  h2 { font: 700 9pt/1.2 var(--sans); text-transform: uppercase; letter-spacing: .06em; color: var(--text); padding-bottom: 3pt; border-bottom: 1px solid var(--line); }
+  h2::before, .body h3::before { display: none; }
+  /* no PDF, o projeto fica resumido: título, resumo, resultado e tecnologias */
+  .blk.problema, .blk.passos, .blk.aprendi { display: none; }
+  code { border: 0; background: none; padding: 0; font-family: inherit; font-size: inherit; }
+  code + code { margin-left: 0; }
+  code + code::before { content: ", "; }
+  .layout { max-width: none; padding: 0; }
+  .side { position: relative; min-height: 64px; }
+  .photo { position: absolute; top: 0; right: 0; width: 64px; height: 64px; margin: 0; }
+  h1 { font-size: 21pt; }
+  .role { margin-top: 3px; font-size: 9pt; }
+  .intro { max-width: 135mm; margin-top: 8px; }
+  .links { margin-top: 8px; gap: 16px; font-size: 9pt; }
+  main section { margin-top: 13pt; }
+  h2 { margin-bottom: 6pt; break-after: avoid; }
+  .stack a[href^="http"]::after { content: " – " attr(href); color: var(--muted); font-size: 8pt; }
+  #about p { max-width: none; margin-bottom: .6em; }
+  details { break-inside: avoid; }
+  summary { padding: 6pt 0 2pt; cursor: default; }
+  .body { max-width: none; padding-bottom: 6pt; }
+  .body h3 { margin-top: 4pt; margin-bottom: 1pt; }
+  .body .stack { margin-top: 4pt; }
+  .row, .skill { grid-template-columns: 105px 1fr; margin-bottom: 6pt; break-inside: avoid; }
+  .contact { font-size: 10pt; }
+}

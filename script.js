@@ -12,7 +12,7 @@
     kids.flat(Infinity).forEach(c => { if (c != null) el.append(c.nodeType ? c : document.createTextNode(c)); });
     return el;
   }
-  const link = l => h("a", { href: l.url, target: l.url.startsWith("http") ? "_blank" : null, rel: "noopener", text: l.label });
+  const link = l => h("a", { href: l.url, target: l.url.startsWith("http") ? "_blank" : null, rel: "noopener", download: l.url.endsWith(".pdf") ? "" : null, text: l.label });
 
   /* ---------- cabeçalho / coluna lateral ---------- */
   document.title = D.name;
@@ -23,6 +23,8 @@
   $("role").textContent = D.role || "";
   $("intro").textContent = D.intro;
   D.links.forEach(l => $("links").append(link(l)));
+  // linha de contato que só aparece no PDF / impressão
+  $("links").before(h("p", { class: "print-only", text: [D.email, "Londrina, PR"].join(" · ") }));
   // links do rodapé da lateral não precisam do sublinhado de texto; o estilo cuida disso
 
   /* ---------- sobre ---------- */
@@ -30,7 +32,7 @@
 
   /* ---------- projetos (cada um abre e fecha com <details>, sem JavaScript extra) ---------- */
   D.projects.forEach(p => {
-    const block = (title, node) => [h("h3", { text: title }), node];
+    const block = (title, node, cls) => h("div", { class: "blk " + cls }, h("h3", { text: title }), node);
     const links = (p.links || []).filter(l => l.url);
     const stack = [].concat(p.stack || []);
     $("projects").append(h("details", {},
@@ -38,13 +40,13 @@
         h("span", {}, h("span", { class: "t", text: p.title }), h("span", { class: "s", text: p.summary })),
         p.year ? h("span", { class: "y", text: p.year }) : null),
       h("div", { class: "body" },
-        p.problem ? block("O problema", h("p", { text: p.problem })) : null,
-        p.steps && p.steps.length ? block("Como eu fiz", h("ol", {}, p.steps.map(s => h("li", { text: s })))) : null,
-        p.result ? block("Resultado", h("p", { text: p.result })) : null,
-        p.learned ? block("O que aprendi", h("p", { text: p.learned })) : null,
+        p.problem ? block("O problema", h("p", { text: p.problem }), "problema") : null,
+        p.steps && p.steps.length ? block("Como eu fiz", h("ol", {}, p.steps.map(s => h("li", { text: s }))), "passos") : null,
+        p.result ? block("Resultado", h("p", { text: p.result }), "resultado") : null,
+        p.learned ? block("O que aprendi", h("p", { text: p.learned }), "aprendi") : null,
         stack.length || links.length
           ? h("p", { class: "stack" },
-              stack.length ? ["Feito com: ", stack.map((s, i) => [i ? " " : "", h("code", { text: s })])] : "",
+              stack.length ? ["Feito com: ", stack.map(s => h("code", { text: s }))] : "",
               stack.length && links.length ? " · " : "",
               links.map((l, i) => [i ? " · " : "", link(l)]))
           : null)));
@@ -67,7 +69,14 @@
     h("p", { text: s.items }))));
 
   /* ---------- contato ---------- */
-  $("contact").append("Me escreva em ", h("a", { href: "mailto:" + D.email, text: D.email }), ".");
+  $("contact").append("Me escreva em ", h("a", { href: "mailto:" + D.email + "?subject=" + encodeURIComponent("Contato pelo portfólio"), text: D.email }), ".");
+
+  /* ---------- impressão / PDF: abre todos os projetos para sair completo ---------- */
+  const allDetails = () => [...document.querySelectorAll("details")];
+  let aberto = [];
+  addEventListener("beforeprint", () => { aberto = allDetails().map(d => d.open); allDetails().forEach(d => (d.open = true)); });
+  addEventListener("afterprint", () => allDetails().forEach((d, i) => (d.open = aberto[i])));
+  if (/[?&]pdf\b/.test(location.search)) allDetails().forEach(d => (d.open = true));
 
   /* ---------- extras (só aparecem se a página tiver o elemento) ---------- */
   if (D.photo && document.querySelector(".side")) {
