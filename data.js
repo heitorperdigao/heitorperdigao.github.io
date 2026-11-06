@@ -8,17 +8,21 @@ const PORTFOLIO = {
   demo: false,
 
   name: "Heitor Costa Perdigão",
-  role: "Analista de Suporte · Londrina",
-  intro: "Formado em Análise e Desenvolvimento de Sistemas. Sou responsável pelo desenvolvimento do sistema interno de chamados e pendências da Pro System.",
+  role: "Fundador da NoxusSoft · Analista de Suporte",
+  intro: "Formado em Análise e Desenvolvimento de Sistemas, em Londrina. Fundei a NoxusSoft, que cria sites, landing pages e sistemas sob medida, e desenvolvo o sistema interno de chamados da Pro System.",
   email: "heitorperdigao2311@gmail.com",
+  photo: "foto.jpg", // opcional: caminho de uma foto (deixe "" para não mostrar)
+  repo: "https://github.com/heitorperdigao/heitorperdigao.github.io",
   links: [
     { label: "GitHub", url: "https://github.com/heitorperdigao" },
     { label: "LinkedIn", url: "https://www.linkedin.com/in/heitorperdigao/" },
+    { label: "NoxusSoft", url: "https://noxussoft.com.br" }
     // { label: "Currículo em PDF", url: "Curriculum_Heitor.pdf" }
   ],
 
   about: [
     "Sou formado em Análise e Desenvolvimento de Sistemas pela Anhanguera e busco desenvolver habilidades e conhecimentos na área de tecnologia, contribuindo com meu conhecimento e dedicação. Em breve vou iniciar uma pós-graduação em Engenharia de IA Aplicada.",
+    "Sou fundador da NoxusSoft, uma software house de Londrina. Criamos sites, landing pages e sistemas sob medida para pequenos negócios, do design à publicação, e escrevemos o código do zero, sem construtor de site nem tema comprado.",
     "O que mais me atrai na tecnologia é a oportunidade de resolver problemas da maneira mais didática possível. O que mais gosto de construir são coisas que eliminam problemas e automatizam processos, ganhando velocidade no trabalho."
   ],
 
@@ -28,7 +32,7 @@ const PORTFOLIO = {
       title: "Sistema interno de chamados e pendências",
       year: "2026",
       summary: "Sistema da Pro System para abrir e acompanhar chamados e pendências, tudo em um só lugar.",
-      stack: "PHP e PostgreSQL",
+      stack: ["PHP", "PostgreSQL"],
       problem: "A empresa não tinha nenhum controle de pendências. Tudo ficava para trás e era difícil saber o que estava acontecendo.",
       steps: [
         "Percebi que o principal problema era a falta de um lugar único para registrar as pendências.",
@@ -39,10 +43,35 @@ const PORTFOLIO = {
       result: "Menos reclamações de clientes, mais agilidade na resolução dos problemas e mais agilidade na entrega dos trabalhos.",
       learned: "A ir atrás da raiz do problema para construir a melhor solução. Isso facilita resolver problemas menores depois e abre um leque de oportunidades de desenvolvimento.",
       links: []
+    },
+    {
+      title: "NoxusLaboratório",
+      summary: "Sistema de gestão para laboratórios odontológicos, da ordem de serviço ao financeiro.",
+      problem: "Laboratórios odontológicos precisam ligar dentistas, produção e financeiro em um só fluxo de ordem de serviço, sem sistema de prateleira que não se adapta ao jeito de cada laboratório.",
+      result: "Um sistema único, configurado para cada laboratório, com ordens de serviço rastreáveis, financeiro, fechamento mensal por dentista e portal para o dentista acompanhar os pedidos.",
+      links: [{ label: "ver o sistema", url: "https://noxussoft.com.br/NoxusLaboratorio" }]
+    },
+    {
+      title: "Fiat Graças",
+      summary: "Loja de terços artesanais com \"monte o seu terço\" e painel administrativo.",
+      result: "Catálogo por coleções, montagem do terço pelo cliente e painel para gerenciar pedidos e produção.",
+      links: [{ label: "ver o site", url: "https://fiatgracasterco.com.br" }]
+    },
+    {
+      title: "Vasconcellos Studio",
+      summary: "Site do studio de Fisioterapia e Pilates, em Londrina.",
+      result: "Apresentação dos serviços e contato direto com o studio. Foi o primeiro cliente e o primeiro site da NoxusSoft.",
+      links: [{ label: "ver o site", url: "https://vasconcellostudiolondrina.com.br" }]
     }
   ],
 
   experience: [
+    {
+      role: "Fundador",
+      place: "NoxusSoft · Londrina",
+      period: "jul 2026 – atual",
+      text: "Software house que fundei com o Cadu. Criamos sites, landing pages e sistemas sob medida para pequenos negócios, com banco de dados, painéis administrativos e publicação. Sites no ar: Fiat Graças, Vasconcellos Studio, Amoricando, Lixadora Carfi e Ótica Bandeirantes."
+    },
     {
       role: "Analista de Suporte",
       place: "Pro System ERP · Londrina",
@@ -74,8 +103,8 @@ const PORTFOLIO = {
   ],
 
   skills: [
-    { group: "Sistemas e dados", items: "PostgreSQL, SAP ECC, planilhas" },
-    { group: "Programação", items: "PHP, JavaScript, lógica de programação, Java (em estudo)" },
+    { group: "Sistemas e dados", items: "PostgreSQL, SAP ECC, Pacote Office, Google Sheets" },
+    { group: "Programação", items: "TypeScript, JavaScript, React, Next.js, Node.js, PHP, lógica de programação, Java (em estudo)" },
     { group: "Idiomas", items: "Português, Inglês (intermediário), Espanhol (intermediário)" }
   ]
 };

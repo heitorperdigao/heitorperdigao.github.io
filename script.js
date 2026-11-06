@@ -32,6 +32,7 @@
   D.projects.forEach(p => {
     const block = (title, node) => [h("h3", { text: title }), node];
     const links = (p.links || []).filter(l => l.url);
+    const stack = [].concat(p.stack || []);
     $("projects").append(h("details", {},
       h("summary", {},
         h("span", {}, h("span", { class: "t", text: p.title }), h("span", { class: "s", text: p.summary })),
@@ -41,8 +42,10 @@
         p.steps && p.steps.length ? block("Como eu fiz", h("ol", {}, p.steps.map(s => h("li", { text: s })))) : null,
         p.result ? block("Resultado", h("p", { text: p.result })) : null,
         p.learned ? block("O que aprendi", h("p", { text: p.learned })) : null,
-        p.stack || links.length
-          ? h("p", { class: "stack" }, p.stack ? "Feito com: " + p.stack : "", p.stack && links.length ? " · " : "",
+        stack.length || links.length
+          ? h("p", { class: "stack" },
+              stack.length ? ["Feito com: ", stack.map((s, i) => [i ? " " : "", h("code", { text: s })])] : "",
+              stack.length && links.length ? " · " : "",
               links.map((l, i) => [i ? " · " : "", link(l)]))
           : null)));
   });
@@ -65,6 +68,29 @@
 
   /* ---------- contato ---------- */
   $("contact").append("Me escreva em ", h("a", { href: "mailto:" + D.email, text: D.email }), ".");
+
+  /* ---------- extras (só aparecem se a página tiver o elemento) ---------- */
+  if (D.photo && document.querySelector(".side")) {
+    document.querySelector(".side").prepend(h("img", { class: "photo", src: D.photo, alt: "Foto de " + D.name, width: 64, height: 64 }));
+  }
+  if ($("foot")) {
+    $("foot").append("Feito à mão com HTML, CSS e JavaScript. ", D.repo ? link({ label: "Ver o código ↗", url: D.repo }) : "");
+  }
+  const themeBtn = $("theme");
+  if (themeBtn) {
+    const root = document.documentElement;
+    try { const s = localStorage.getItem("tema"); if (s) root.dataset.theme = s; } catch (e) {}
+    const isDark = () => (root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")) === "dark";
+    const label = () => { themeBtn.textContent = isDark() ? "tema: escuro" : "tema: claro"; };
+    label();
+    themeBtn.addEventListener("click", () => {
+      const next = isDark() ? "light" : "dark";
+      root.dataset.theme = next;
+      try { localStorage.setItem("tema", next); } catch (e) {}
+      label();
+    });
+  }
+  console.log("Curioso? O código deste site está em " + (D.repo || "") + "\nSe quiser conversar: " + D.email);
 
   /* ---------- destaca no menu a seção que está na tela ---------- */
   const navLinks = [...document.querySelectorAll("#nav a")];
