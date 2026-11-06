@@ -24,7 +24,7 @@ const PORTFOLIO = {
   ],
 
   about: [
-    "Sou formado em Análise e Desenvolvimento de Sistemas pela Anhanguera e busco desenvolver habilidades e conhecimentos na área de tecnologia, contribuindo com meu conhecimento e dedicação. Em breve vou iniciar uma pós-graduação em Engenharia de IA Aplicada.",
+    "Sou formado em Análise e Desenvolvimento de Sistemas pela Anhanguera e busco desenvolver habilidades e conhecimentos na área de tecnologia, contribuindo com meu conhecimento e dedicação. Tenho facilidade e conhecimento amplo de LLMs e inteligência artificial, e em breve vou iniciar uma pós-graduação em Engenharia de IA Aplicada.",
     "Sou fundador da NoxusSoft, uma software house de Londrina. Criamos sites, landing pages e sistemas sob medida para pequenos negócios, do design à publicação, e escrevemos o código do zero, sem construtor de site nem tema comprado.",
     "O que mais me atrai na tecnologia é a oportunidade de resolver problemas da maneira mais didática possível. O que mais gosto de construir são coisas que eliminam problemas e automatizam processos, ganhando velocidade no trabalho."
   ],
@@ -108,6 +108,7 @@ const PORTFOLIO = {
   skills: [
     { group: "Sistemas e dados", items: "PostgreSQL, SAP ECC, Pacote Office, Google Sheets" },
     { group: "Programação", items: "TypeScript, JavaScript, React, Next.js, Node.js, PHP, lógica de programação, Java (em estudo)" },
+    { group: "Inteligência artificial", items: "Facilidade e conhecimento amplo de LLMs e IA" },
     { group: "Comportamental", items: "Boa comunicação com o cliente e a equipe, comprometimento com horários e prazos, gestão de equipe de suporte" },
     { group: "Idiomas", items: "Português, Inglês (intermediário), Espanhol (intermediário)" }
   ]
